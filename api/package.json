@@ -4,10 +4,10 @@
   "author": "Ivor Reic",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --exec ts-node --files src/index.ts",
+    "start": "cd api && npm run start:production",
     "start:test": "cross-env NODE_ENV='test' DB_DATABASE='jira_test' npm start",
-    "start:production": "node -r ./tsconfig-paths.js build/index.js",
-    "build": "cd src && tsc",
+    "start:production": "cd api && npm run start:production",
+    "build": "cd api && npm run build && cd ../client && npm run build",
     "pre-commit": "lint-staged"
   },
   "dependencies": {
